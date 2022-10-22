@@ -1,0 +1,6 @@
+<label for="name">Account: </label>
+<select *ngIf="!isEditing" id="name" type="text" [formControl]="account">
+  <option *ngFor="let a of accounts">{{ a }}</option>
+</select>
+<h1 *ngIf="isEditing" id="accountLabel">{{ account.value }}</h1>
+<div><button id="editButton" (click)="edit()">Edit</button></div>

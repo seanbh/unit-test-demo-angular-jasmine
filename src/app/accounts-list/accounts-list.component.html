@@ -1,0 +1,21 @@
+<div style="display: flex; flex-direction: row">
+  <div style="width: 500px">
+    <h2>Accounts</h2>
+    <ng-container *ngFor="let account of accountsList">
+      <input
+        type="checkbox"
+        value="account"
+        (change)="toggleSelected(account)"
+      />{{ account }}<br />
+    </ng-container>
+    <button [disabled]="selectedAccountsList.length === 0">Next</button>
+  </div>
+  <div style="width: 500px">
+    <ng-container *ngIf="(accountsList && selectedAccountsList).length">
+      <h2>Selected Accounts</h2>
+      <div *ngFor="let account of selectedAccountsList">
+        {{ account }}
+      </div>
+    </ng-container>
+  </div>
+</div>
